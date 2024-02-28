@@ -141,7 +141,7 @@ def train():
             num_epochs, log_interval, learning_rate,
             decay_rate, False)
 
-    torch.save(model.state_dict(), "nist_model.pt")
+    torch.save(model.state_dict(), CNN.defaultModelPath)
 
 if __name__ == "__main__":
     torch.manual_seed(1234)

@@ -6,9 +6,6 @@ from impl.data import normalization_transform, image_size
 from PIL import Image, ImageOps
 import pathlib
 
-def _getModelPath():
-    return pathlib.Path(__file__).parent.resolve() / 'nist_model.pt'
-
 def infer(image):
     image = ImageOps.invert(image.convert('L'))
     transform = transforms.Compose([
@@ -18,7 +15,7 @@ def infer(image):
     ])
     data = transform(image)
     model = CNN()
-    model.load_state_dict(torch.load(_getModelPath()))
+    model.load_state_dict(torch.load(CNN.defaultModelPath))
     model.eval()
     scores = model(data.unsqueeze(0))
     _, predicted = torch.max(scores, 1)

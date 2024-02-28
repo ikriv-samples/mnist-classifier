@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import pathlib
 
 num_hidden_unites = 50
 num_classes= 10 # MNIST
@@ -7,6 +8,8 @@ dropout_p = 0.5
 
 # model
 class CNN(nn.Module):
+    defaultModelPath = pathlib.Path(__file__).parent.parent.resolve() / 'nist_model.pt'
+
     def __init__(self):
         super(CNN, self).__init__()
         self.conv1 = nn.Conv2d(1, 10, kernel_size=5)

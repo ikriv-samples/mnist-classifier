@@ -1,8 +1,0 @@
-'html' goes to $WEBSITE_ROOT/html
-'api'  goes to $WEBSITE_ROOT/api
-
-The following should be added to web site configuration in Apache configs:
-
-WSGIScriptAlias /api/wsgi $WEBSITE_ROOT/api/wsgi.py
-WSGIDaemonProcess website.domain.com processes=2 threads=15 display-name=%{GROUP}
-WSGIApplicationGroup %{GLOBAL}
