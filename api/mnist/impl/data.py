@@ -1,7 +1,8 @@
+import tempfile
 import torch
 from torchvision import datasets, transforms
 
-DATA_DIR = "C:/Users/ivan/Documents/extra/mldata/mnist"
+DATA_DIR = tempfile.gettempdir() + "/mldata/mnist"
 
 batch_size = 64
 image_size = (28,28)
